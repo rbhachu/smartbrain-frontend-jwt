@@ -10,7 +10,6 @@ import Profile from '../components/Profile';
 import Modal from '../components/Modal';
 import Particles from "react-tsparticles";
 import 'tachyons';
-import '../css/App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -132,46 +131,7 @@ class App extends Component {
     //console.log(`boxData Length: ${boxData.length}`) // disable as breaks code
 
     if (boxData) {
-      // IF FACE(S) DETECTED IN IMAGE
-      //console.log(`not empty`)
-
-      //const Emoji = [...Array(6)].map((e, i) => <span key={i}>😀</span>)
-
-      /*
-      const Field = ({ id: number }) => (<span role="img">😀 </span>)
-      const Emoji = (    
-        <>
-          {[...Array(4)].map((value: undefined, index: number) => (
-          <Field id={index + 1} key={index} />
-        ))}
-        </>
-      )
-      */
-
-      /*
-      class Tbody extends React.Component {
-        render () {
-          const { rowLimit = 5 } = this.props; // destructure with defaults instead of trinary
-          
-          return (
-            <>
-            {
-              Array.from({ length: rowLimit }, (_, k) => (
-                <span key={k}>test</span>
-              ))
-            }
-            </>
-          )
-        }  
-      }
-      const emoji = [...Array(5)].map((elementInArray, index) => ( 
-        <div className="">test</div> 
-        ) 
-    )
-    */
-
       this.setState({status: `${boxData.length} human face(s) detected 😀`});
-
       return boxData.map(face => {
         const clarifaiFace = face.region_info.bounding_box;
         return {
@@ -186,17 +146,13 @@ class App extends Component {
       //console.log(`empty`)
       this.setState({errors: 'no human face(s) detected, please try another image 😔'});
     }
+
   }
+
 
   displayFaceBox = (boxes) => {
     this.setState({boxes: boxes});
-    //const testval = this.state.boxes
-    //console.log(`boxes: ${this.state.boxes}`)
-    //!boxes && alert('empty')
-    //testval ? alert('not empty') : alert('empty')
   }
-
-
 
 
   // ImageLinkForm
@@ -207,10 +163,7 @@ class App extends Component {
   // ADD CHECK FORM
   onSubmitImage = (event) => {
     event.preventDefault();
-    //this.setState({boxes: []}); // reset box data
     this.setState({imageUrl: this.state.input});
-    //const inputValue = this.state.input
-    //this.setState({inputValue: 'test1'})
     this.setState({input:''}) // clear input form value after submit to avoid dupe submit
     this.setState({boxes: []}); // reset box data
     this.setState({status: ''}); // reset status
@@ -254,12 +207,6 @@ class App extends Component {
           this.displayFaceBox(this.calculateFaceLocation(response))
         })
         .catch(err => console.log(err));
-        //alert("alert1")
-        //this.setState({input: 'test1'})
-        //this.setState({input: 'test1'})
-        //add empty form here
-        //form state input = ===
-
       }
 
   }
@@ -268,25 +215,27 @@ class App extends Component {
   //Route Change Function
   onRouteChange = (route) => {
 
-    /*
-    if (route === 'signout') {
-      //return this.setState(initialState)
-      this.setState({isSignedIn: false})
-    } else if (route === 'home') {
-      this.setState({isSignedIn: true})
-    }
-    */
-
+  if (route === 'signin') {
+    this.setState({isSignedIn: false})
+    //this.setState({route: 'signin'})
+  } else if (route === 'home') {
+    this.setState({isSignedIn: true})
+  } else {
+    this.setState({isSignedIn: false})
+  }
+  
+/*
     if (route === 'home') {
       //return this.setState(initialState)
       this.setState({isSignedIn: true})
     } else if (route === 'home') {
       this.setState({isSignedIn: false})
     }
-
+*/
 
     this.setState({route: route});
     console.log(`isSignedIn ${this.state.isSignedIn}`)
+    console.log(`onRouteChange ${this.state.route}`)
 
   }
 

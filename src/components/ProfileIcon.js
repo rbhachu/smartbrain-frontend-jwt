@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import profileLogo from '../assets/logo.jpg'
 
-class ProfileIcon extends React.Component {
+class ProfileIcon extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,11 +10,25 @@ class ProfileIcon extends React.Component {
     };
   }
 
+  // toggle function
   toggle = () => {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
     });
   }
+
+  // signout function
+  onSignOut = () => {
+    sessionStorage.clear(); // clear JWT Token
+    //this.props.onRouteChange('signout'); // redirect to signin route
+    this.props.onRouteChange('signin'); // redirect to signin route
+    //this.props.isSignedIn(false); // set signin state to false to hide modal
+    //this.setState({isSignedIn: false}) // does nothing, but passes, so its not updating global state!
+    //this.state.isSignedIn(false); //no
+    //this.props.setState({isSignedIn: false}) //no
+    //alert('test');
+  }
+
 
   render() {
     return (
@@ -33,7 +47,7 @@ class ProfileIcon extends React.Component {
               {/* Old <DropdownMenu className='b--transparent shadow-5' style={{marginTop: '20px', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} right> */}
               <DropdownMenu className='b--transparent shadow-5' style={{marginLeft: '-6rem', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} >
                 <DropdownItem onClick={() => this.props.toggleModal()}>View Profile</DropdownItem>
-                <DropdownItem onClick={() => sessionStorage.clear() + this.props.onRouteChange('signin') }>Sign Out</DropdownItem>
+                <DropdownItem onClick={() => this.onSignOut()}>Sign Out</DropdownItem>
               </DropdownMenu>
             </Dropdown>
       </div>

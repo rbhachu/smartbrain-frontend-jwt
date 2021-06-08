@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import '../css/Modal.css';
+
 
 const modalRoot = document.getElementById('modal-root');
 
-class Modal extends React.Component {
+
+class Modal extends Component {
+
   constructor(props) {
     super(props);
     this.el = document.createElement('div');

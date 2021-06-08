@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/ImageLinkForm.css';
+
 
 const ImageLinkForm = ({ input, onInputChange, onSubmitImage, errors, status }) => {
   return (

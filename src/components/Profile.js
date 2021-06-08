@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import profileLogo from '../assets/logo.jpg'
-import '../css/Profile.css';
 
 class Profile extends Component {
   constructor(props) {
