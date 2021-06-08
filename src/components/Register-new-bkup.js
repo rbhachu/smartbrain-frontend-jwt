@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/Signin.css';
+import '../css/Register.css';
 
 
 const emailRegex = RegExp(
@@ -23,31 +23,23 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 
-class Signin extends Component {
+class Register extends Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
+      name: null,
       email: null,
       password: null,
       form: "",
       formErrors: {
+        name: "",
         email: "",
         password: "",
         form: ""
       }
     };
-  }
-
-
-  // token generation for session
-  saveAuthTokenInSessions = (token) => { 
-    //window.localStorage.setItem('token', token); // local storage
-    window.sessionStorage.setItem('token', token); // session storage
-    //window.sessionStorage.setItem('token', token, { maxAge: 1 }); // works on own
-    //window.sessionStorage.setItem('token', token, { expiresIn: 1 });
-
   }
 
 
@@ -60,36 +52,39 @@ handleSubmit = (e) => {
     /*
     console.log(`
         --SUBMITTING--
+        Name: ${this.state.name}
         Email: ${this.state.email}
         Password: ${this.state.password}
       `);
     */
-    fetch(`${process.env.REACT_APP_SERVER_URL}/signin`, {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password
-      })
+
+
+    fetch(`${process.env.REACT_APP_SERVER_URL}/register`, { // remote heroku version 
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ //convert to JSON format
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password
+        })
     })
     .then(response => response.json())
-    .then(data => {
-      // if login details valid
-      if (data && data.success === "true") {
-        this.saveAuthTokenInSessions(data.token) // generate token for session
-        this.props.loadUser(data.user) // login into db
-        this.props.onRouteChange('home'); // redirect to home route
-      // if login details invalid
-      } else {
-        this.setState({form: 'Login details invalid, please check your details and try again'})
-      }
+    .then(user => {
+        //if (user) { // check user data passing
+        if (user.id) { // does the user exist? Did we receive a user with a property of id?
+            this.props.loadUser(user); // add new user to database
+            this.props.onRouteChange('home'); // if they do load home route
+        }
     })
-    
+    //console.log(this.state);
+    //this.props.onRouteChange('home'); // on form submit change route to home
+
+
   } else {
     console.log("FORM INVALID");
     //this.setState({form: 'Please fix form errors!'})
 
-    if ( !this.state.email || !this.state.password ) {
+    if ( !this.state.name || !this.state.email || !this.state.password ) {
       //console.log('null1')
       this.setState({form: 'Please enter details'})
     } else {
@@ -98,56 +93,70 @@ handleSubmit = (e) => {
     }
 
   }
+
 };
 
 
 handleChange = (e) => {
-  e.preventDefault();
-  const { name, value } = e.target;
-  let formErrors = { ...this.state.formErrors };
+    e.preventDefault();
+    const { name, value } = e.target;
+    let formErrors = { ...this.state.formErrors };
 
-  switch (name) {
-      case "email":
-      formErrors.email = emailRegex.test(value)
-          ? ""
-          : "invalid email address";
-      break;
-      case "password":
-      formErrors.password =
-          value.length < 1 ? "password required" : "";
-      break;
+    switch (name) {
+        case "name":
+        formErrors.name =
+            value.length < 3 ? "minimum 3 characters" : "";
+        break;
+        case "email":
+        formErrors.email = emailRegex.test(value)
+            ? ""
+            : "invalid email address";
+        break;
+        case "password":
+        formErrors.password =
+            value.length < 6 ? "minimum 6 characters" : "";
+        break;
 
-      default:
-      break;
-  }
+        default:
+        break;
+    }
 
-  this.setState({ formErrors, [name]: value }); // display inline error messages
-  //this.setState({ formErrors, [name]: value }, () => console.log(this.state)); display inline error messages + console in too
+    this.setState({ formErrors, [name]: value }); // display inline error messages
+    //this.setState({ formErrors, [name]: value }, () => console.log(this.state)); display inline error messages + console in too
 };
 
 
 
+render() {
+  const { formErrors } = this.state;
+  const { onRouteChange } = this.props; // destructuring, avoids repeating this.state
 
+  return (
+    <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+      <main className="pa4 black-80">
+        <div className="measure">
+          <legend className="f1 fw6 ph0 mh0">Register</legend>
 
+            <form id="register">
 
+            <fieldset id="register" className="ba b--transparent ph0 mh0">
 
+              <div className="mt3">
+                <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
+                <input
+                  className={`b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100${formErrors.name && ' error-input'}`}
+                  placeholder="Enter Name"
+                  type="text"
+                  name="name"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.name && (
+                  <span className="error">{formErrors.name}</span>
+                )}
+              </div>
 
-
-
-  render() {
-    const { formErrors } = this.state;
-    const { onRouteChange } = this.props;
-    return (
-      <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-        <main className="pa4 black-80">
-          <div className="measure">
-          <legend className="f1 fw6 ph0 mh0">Sign In</legend>
-
-            <form id="signin">
-          
-            <fieldset id="signin" className="ba b--transparent ph0 mh0">
-             
-            <div className="mt3">
+              <div className="mt3">
                 <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
                 <input
                   className={`b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100${formErrors.email && ' error-input'}`} 
@@ -179,13 +188,12 @@ handleChange = (e) => {
 
             </fieldset>
 
-
             <div className="">
               <input
                 onClick={this.handleSubmit} // function that gets called to change state to 'home'
                 className="b ph3 pv2 input-reset ba bg-black white grow pointer f6 dib" 
                 type="submit" 
-                value="Sign In"
+                value="Register"
               />
               {this.state.form && (
                   <span className="error">{this.state.form}</span>
@@ -195,10 +203,10 @@ handleChange = (e) => {
             </form>
 
             <div className="lh-copy mt3">
-              <p onClick={() => onRouteChange('register')} className="f6 link dim black b db pointer">or Register?</p>
+              <p onClick={() => onRouteChange('signin')} className="f6 link dim black b db pointer">or Signin?</p>
             </div>
 
-          </div>
+        </div>
       </main>
     </article>
 
@@ -206,4 +214,4 @@ handleChange = (e) => {
   }
 }
 
-export default Signin;
+export default Register;

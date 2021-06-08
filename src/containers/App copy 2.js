@@ -19,10 +19,8 @@ const initialState = {
   imageUrl: '',
   boxes: [],
   route: 'signin', // default route
-  //route: 'register', // default route
   isProfileOpen: false,
   isSignedIn: false,
-  status: '',
   errors: '',
   user: {
     id: '',
@@ -122,57 +120,37 @@ class App extends Component {
     }})
   }
 
-
   // Face API Bounding Box
   calculateFaceLocation = (data) => {
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
     const height = Number(image.height);
-    const boxData = data.outputs[0].data.regions
-    //console.log(`boxData Length: ${boxData.length}`) // disable as breaks code
 
-    if (boxData) {
-      // IF FACE(S) DETECTED IN IMAGE
-      //console.log(`not empty`)
-
-      //const Emoji = [...Array(6)].map((e, i) => <span key={i}>😀</span>)
-
-      /*
-      const Field = ({ id: number }) => (<span role="img">😀 </span>)
-      const Emoji = (    
-        <>
-          {[...Array(4)].map((value: undefined, index: number) => (
-          <Field id={index + 1} key={index} />
-        ))}
-        </>
-      )
-      */
-
-      /*
-      class Tbody extends React.Component {
-        render () {
-          const { rowLimit = 5 } = this.props; // destructure with defaults instead of trinary
-          
-          return (
-            <>
-            {
-              Array.from({ length: rowLimit }, (_, k) => (
-                <span key={k}>test</span>
-              ))
-            }
-            </>
-          )
-        }  
+    return data.outputs[0].data.regions.map(face => {
+      const clarifaiFace = face.region_info.bounding_box;
+      return {
+        leftCol: clarifaiFace.left_col * width,
+        topRow: clarifaiFace.top_row * height,
+        rightCol: width - (clarifaiFace.right_col * width),
+        bottomRow: height - (clarifaiFace.bottom_row * height)
       }
-      const emoji = [...Array(5)].map((elementInArray, index) => ( 
-        <div className="">test</div> 
-        ) 
-    )
-    */
 
-      this.setState({status: `${boxData.length} human face(s) detected 😀`});
+    const boxData = data.outputs[0].data.regions
+    //console.log(`boxdata length: ${boxData.length}`);
+    //boxData.length > 0 ? 'yes' : 'no'
 
-      return boxData.map(face => {
+    console.log(`boxdata: ${boxData}`);
+
+
+
+    ////////////////////////////////////////////////////
+/*
+    boxData 
+    ? 
+      console.log(`not empty`) 
+      
+    return 
+      boxData.map(face => {
         const clarifaiFace = face.region_info.bounding_box;
         return {
           leftCol: clarifaiFace.left_col * width,
@@ -180,20 +158,21 @@ class App extends Component {
           rightCol: width - (clarifaiFace.right_col * width),
           bottomRow: height - (clarifaiFace.bottom_row * height)
         }
-      });
-    } else {
-      // IF 'NO' FACES DETECTED IN IMAGE
-      //console.log(`empty`)
-      this.setState({errors: 'no human face(s) detected, please try another image 😔'});
-    }
+      })
+     
+    : 
+      console.log(`empty`) // combine both
+      // add set error messsage here
+*/
+
   }
+
+
+
 
   displayFaceBox = (boxes) => {
     this.setState({boxes: boxes});
-    //const testval = this.state.boxes
-    //console.log(`boxes: ${this.state.boxes}`)
-    //!boxes && alert('empty')
-    //testval ? alert('not empty') : alert('empty')
+    console.log(`boxes: ${this.state.boxes}`)
   }
 
 
@@ -211,15 +190,13 @@ class App extends Component {
     this.setState({imageUrl: this.state.input});
     //const inputValue = this.state.input
     //this.setState({inputValue: 'test1'})
-    this.setState({input:''}) // clear input form value after submit to avoid dupe submit
+    this.setState({input:''}) // reset input value after submit
     this.setState({boxes: []}); // reset box data
-    this.setState({status: ''}); // reset status
-    this.setState({errors: ''}); // reset errors
 
     //if (inputValue.length === 0) {
     if (this.state.input.length === 0) {
       //alert(`inputvalue: ${inputValue}`);
-      this.setState({errors: 'Please paste an image link to test in the field below'});
+      this.setState({errors: 'Please paste an image to check in the field below'});
       //errorValue = "Image Empty"
     } else {
       fetch(`${process.env.REACT_APP_SERVER_URL}/imageurl`, {
@@ -267,27 +244,12 @@ class App extends Component {
 
   //Route Change Function
   onRouteChange = (route) => {
-
-    /*
     if (route === 'signout') {
-      //return this.setState(initialState)
-      this.setState({isSignedIn: false})
+      return this.setState(initialState)
     } else if (route === 'home') {
       this.setState({isSignedIn: true})
     }
-    */
-
-    if (route === 'home') {
-      //return this.setState(initialState)
-      this.setState({isSignedIn: true})
-    } else {
-      this.setState({isSignedIn: false})
-    }
-
-
     this.setState({route: route});
-    console.log(`isSignedIn ${this.state.isSignedIn}`)
-
   }
 
   // toggle state for modal/user Profile
@@ -297,7 +259,6 @@ class App extends Component {
       isProfileOpen: !prevState.isProfileOpen,
     }));
   }
-
 
 
   render() {
@@ -334,10 +295,9 @@ class App extends Component {
                 input={this.state.input}
                 onInputChange={this.onInputChange}
                 onSubmitImage={this.onSubmitImage}
-                status={this.state.status}
                 errors={this.state.errors}
               />
-              {this.state.imageUrl && <FaceRecognition boxes={boxes} imageUrl={imageUrl} errors={this.state.errors} />}
+              <FaceRecognition boxes={boxes} imageUrl={imageUrl} />
             </div>
           : (
              route === 'signin'
