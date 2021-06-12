@@ -42,7 +42,7 @@ class ProfileIcon extends Component {
               >
                 <img
                   src={profileLogo}
-                  className="br-100 h3 w3 dib" alt="avatar" />
+                  className="br-100 h3 w3 dib" alt="Profile" title="Profile" />
               </DropdownToggle>
               {/* Old <DropdownMenu className='b--transparent shadow-5' style={{marginTop: '20px', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} right> */}
               <DropdownMenu className='b--transparent shadow-5' style={{marginLeft: '-6rem', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} >

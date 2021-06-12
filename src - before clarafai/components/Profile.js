@@ -51,7 +51,7 @@ class Profile extends Component {
 
     return (
 
-        <article className="center tc measure">
+        <article className='center-all'>
           <main>
 
             <p className="db fw6 lh-copy f4 white b text-shadow">Name:
@@ -85,13 +85,14 @@ class Profile extends Component {
 
           {this.state.editToggle ?  
           (// show
-          <div className="center measure">
+          <div className="edit-div">
          
+              
             <input 
               onChange={this.onFormChange} 
               type='text' 
               name='user-name' 
-              className='pa2 input-reset ba bg-white hover-bg-black hover-white mv3 f5 input-profile' 
+              className='pa2 input-reset ba bg-white hover-bg-black hover-white w-100 mv3 f5 input-profile' 
               value={name}
               placeholder={name}
             >
@@ -116,8 +117,8 @@ class Profile extends Component {
           </div>
           )
             : 
-          '' // hide
-          
+          ''
+          // hide
           }
 
         </article>

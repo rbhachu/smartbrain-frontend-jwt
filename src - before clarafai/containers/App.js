@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Tabs from "../components/Tabs";
 import Register from '../components/Register';
 import Signin from '../components/Signin';
@@ -32,10 +31,21 @@ import 'tachyons';
   }
   
   class App extends Component {
-  
+
   constructor() {
     super();
     this.state = initialState;
+    this.particlesInit = this.particlesInit.bind(this);
+    this.particlesLoaded = this.particlesLoaded.bind(this);
+  }
+
+  // particles
+  particlesInit(main) {
+    //console.log(main);
+    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+  }
+  particlesLoaded(container) {
+    //console.log(container);
   }
 
 
@@ -84,16 +94,22 @@ import 'tachyons';
   }
 
 
+
+
   // Face API Bounding Box
   calculateFaceLocation = (data) => {
-    const image = document.getElementById('inputimage'); // get image dimensions
-    const width = Number(image.width); // image width
-    const height = Number(image.height); // image height
+    const image = document.getElementById('inputimage');
+    const width = Number(image.width);
+    const height = Number(image.height);
     const boxData = data.outputs[0].data.regions
-    //console.log(`image width: ${width}`)
-    //console.log(`image height: ${height}`)
+    //console.log(`boxData Length: ${boxData.length}`) // disable as breaks code
+    console.log(`width:${width}`)
 
-    if (boxData) { // if boxData not empty
+    //states
+    //width
+    //height
+
+    if (boxData) {
       this.setState({status: `${boxData.length} human face(s) detected`});
       return boxData.map(face => {
         const clarifaiFace = face.region_info.bounding_box;
@@ -103,12 +119,13 @@ import 'tachyons';
           rightCol: width - (clarifaiFace.right_col * width),
           bottomRow: height - (clarifaiFace.bottom_row * height)
         }
-      });      
-    } else { // if boxData empty
+      });
+    } else {
       // IF 'NO' FACES DETECTED IN IMAGE
       //console.log(`empty`)
-      this.setState({errors: (`no human face(s) detected, please try another image`) });
+      this.setState({errors: 'no human face(s) detected, please try another image'});
     }
+
   }
 
   displayFaceBox = (boxes) => {
@@ -193,95 +210,96 @@ import 'tachyons';
 
   return (
 
-    <>
+    <div className="wrapper">
 
       <Particles className='particles'
-      id="tsparticles"
-      url={`${process.env.REACT_APP_CLIENT_URL}/particles.json`}
+        id="tsparticles"
+        url={`${process.env.REACT_APP_CLIENT_URL}/particless.json`}
+        init={this.particlesInit}
+        loaded={this.particlesLoaded}
       />
 
-      <div className="wrapper">
-
-        <header>
-          <Tilt className="Tilt" options={{ max : 55 }} >
-            <h1 className="f2 black b">SmartBrain</h1>
-            <img src={imgBrain} width="50" height="50" alt="SmartBrain" title="SmartBrain" />
-          </Tilt>
-        </header>  
+      <header>
+        <Tilt className="Tilt" options={{ max : 55 }} >
+          <h1 className="f2 black b">SmartBrain</h1>
+          <img src={imgBrain} width="50" height="50" alt="SmartBrain" title="SmartBrain" />
+        </Tilt>
+      </header>  
 
 
-        <section>
+      <section>
 
-          { // Home
-          isSignedIn && route === 'home' &&
+        { // Home
+        isSignedIn && route === 'home' &&
+        (
+          <Tabs>
+                <article label="tab1" id="Home">
+                  <div className="content shadow-5">
+                    <ImageLinkForm
+                      onInputChange={this.onInputChange}
+                      onSubmitImage={this.onSubmitImage}
+                      input={this.state.input}
+                      status={this.state.status}
+                      errors={this.state.errors}
+                      name={this.state.user.name}
+                      entries={this.state.user.entries}
+                    />
+                    { this.state.imageUrl && 
+                      <FaceRecognition 
+                        boxes={boxes} 
+                        imageUrl={imageUrl} 
+                        errors={this.state.errors} 
+                    /> }
+                  </div>
+                </article>
+
+                <article label="tab2" id="View Profile">
+                  <div className="content shadow-5">
+                    <Profile 
+                      user={user} 
+                      loadUser={this.loadUser} 
+                    />
+                  </div>
+                </article>        
+
+                <article label="tab3" id="Sign-Out">
+                  <div className="content shadow-5">
+                    <Signout 
+                      onSubmitReset={this.onSubmitReset}
+                      onRouteChange={this.onRouteChange} 
+                    />
+                  </div>
+                </article>     
+          </Tabs>
+        )
+        }
+
+    
+        { // Sign In / Register
+        !isSignedIn && route === 'signin' &&
           (
             <Tabs>
-              <article label="tab1" id="Home">
-                <div className="content shadow-5">
-                  <ImageLinkForm
-                    onInputChange={this.onInputChange}
-                    onSubmitImage={this.onSubmitImage}
-                    input={this.state.input}
-                    status={this.state.status}
-                    errors={this.state.errors}
-                    name={this.state.user.name}
-                    entries={this.state.user.entries}
-                  />
-                    {/* <MyComponent /> */}
-                  { this.state.imageUrl && 
-                    <FaceRecognition 
-                      boxes={boxes} 
-                      imageUrl={imageUrl} 
-                      errors={this.state.errors} 
-                  /> }
-                </div>
-              </article>
+                  <article label="tab1" id="Sign-In">
+                    <div className="content shadow-5">
+                    <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                    </div>
+                  </article>
 
-              <article label="tab2" id="View Profile">
-                <div className="content shadow-5">
-                  <Profile 
-                    user={user} 
-                    loadUser={this.loadUser} 
-                  />
-                </div>
-              </article>        
-
-              <article label="tab3" id="Sign-Out">
-                <div className="content shadow-5">
-                  <Signout 
-                    onSubmitReset={this.onSubmitReset}
-                    onRouteChange={this.onRouteChange} 
-                  />
-                </div>
-              </article>     
+                  <article label="tab2" id="Register">
+                    <div className="content shadow-5">
+                    <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+                    </div>
+                  </article>
             </Tabs>
           )
-          }
+        }
 
-          { // Sign In / Register
-          !isSignedIn && route === 'signin' &&
-            (
-              <Tabs>
-                <article label="tab1" id="Sign-In">
-                  <div className="content shadow-5">
-                  <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-                  </div>
-                </article>
+      </section>
 
-                <article label="tab2" id="Register">
-                  <div className="content shadow-5">
-                  <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-                  </div>
-                </article>
-              </Tabs>
-            )
-          }
+    <footer>
+    </footer>
 
-        </section>
-    
-      </div>
-    
-    </>
+  </div>
 
   );
 

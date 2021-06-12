@@ -1,20 +1,19 @@
 import React from 'react';
 
+
 const FaceRecognition = ({ imageUrl, boxes, errors }) => {
-
-
   return (
 
-    <div className='center inputimage-div'>
+    <div className='center'>
 
       <div className='relative'>
       <img 
         id='inputimage'
         alt='' 
         src={imageUrl} 
-        width='500' 
+        width='500px' 
         height='auto' 
-        className={`bg-white shadow-5 b--solid${errors ? ' red' : ' yellow'}`}
+        className={`b--solid bg-white ${errors ? 'red' : 'yellow'} shadow-5 `}
       />
       {boxes &&       
         boxes.map(box =>

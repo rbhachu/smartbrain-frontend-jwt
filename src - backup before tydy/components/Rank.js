@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// AWS Lamda
-
 class Rank extends Component {
   constructor() {
     super()
@@ -9,6 +7,7 @@ class Rank extends Component {
       emoji: ''
     }
   }
+
 
   componentDidMount() {
     this.generateEmoji(this.props.entries);
@@ -29,16 +28,15 @@ class Rank extends Component {
       .catch(console.log)
   }
 
-  render() {
 
+  render() {
+    //const { name, entries } = this.props;
     return (
       <>
           {this.state.emoji}
       </>
     );
-    
   }
-
 }
 
 export default Rank;

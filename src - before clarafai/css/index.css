@@ -6,39 +6,32 @@
 }
 
 html, body {
+  width: 100%;
+  height: 100%;
   font-family: 'Orbitron', cursive;
-  font-size: 14px;
+  font-size: 12px;
   color: #000;
-  background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
+  background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%); /* w3c */
+  overflow: hidden;
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-}
-@media screen and (min-width: 0px) and (max-width: 370px) {
-  html, body {
-    font-size: 12px;
-  }
-}
-
-
-/* bg animation */
-.particles {
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0 !important; /* ensures stays under page elements */
 }
 
 /* site wrapper */
 .wrapper {
   padding: 10px;
-  margin: 0;
-  z-index: 1 !important;
+  margin: 0px;
 }
 
+/* bg animation */
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 
 /* HEADER *******************************************************/
 /* App.js */
@@ -58,7 +51,7 @@ header {
   bottom: -10px;
   margin-bottom: 0px
 }
-@media screen and (min-width: 0px) and (max-width: 980px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
   header {
     position: relative;
     bottom: 0px;
@@ -91,6 +84,7 @@ header img {
 
 .tab-list li {
   font-size: 1.2em;
+  font-family: 'Orbitron', cursive;
   color: #000;
   font-weight: 100;
   background-color: #ccc;
@@ -99,6 +93,7 @@ header img {
   border-right: 1px solid #999;
   border-bottom: none;
   cursor: pointer;
+  z-index: 1;
   margin: 0 5px 0px 0;
 }
 .tab-list li:hover {
@@ -116,13 +111,14 @@ header img {
 .tab-list-active {
   color: #fff !important;
   font-weight: 900 !important;
+  z-index: 2 !important;
   border: none !important;
   box-shadow: none !important; 
 }
 
 .content {
+  min-height: 100vh;
   padding: 20px;
-  min-height: 80vh;
 }
 .content, .tab-list-active {
   background-color: rgba(15, 15, 15, 0.3) !important;
@@ -132,7 +128,15 @@ header img {
 
 /* ImageLinkForm.js bg */
 .form {
-  max-width: 500px;
+  
+  width: fit-content !important;
+
+  /*
+
+  min-width: 100vmax;
+  width: 50vmin !important;
+  height: inherit !important;
+  */
 
   display: flex;
   justify-content: center;
@@ -150,7 +154,16 @@ header img {
 
 input {
   width: 100%;
+  /*
+  width: fit-content !important
+  */
 }
+
+/* profile.js name input */
+.input-profile {
+  width: max-content;
+}
+
 
 button {
   cursor: pointer;
@@ -164,25 +177,39 @@ legend {
 
 /* form status and errors messages */
 .error, .status {
+  /*
   width: fit-content;
+ */
 }
 
 /******************************************************/
 /* FaceRecognition.js */
 .bounding-box {
   position: absolute;
+
   box-shadow: 0 0 0 3px #FF5EDF inset;
   background-color: rgba(255, 255, 255, 0.3);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  cursor: crosshair;
+  cursor: pointer;
 }
 
-.inputimage-div {
-  display: flex;
-  justify-content: center;
+@media screen and (min-width: 0px) and (max-width: 400px) {
+  .box-1 {
+    max-width: 300px !important;
+    height: auto !important;
+  }
 }
+@media screen and (min-width: 401px) {
+  .box-1 {
+    max-width: 500px !important;
+    height: auto !important;
+  }
+}
+
+.box-1 {
+
+}
+
+
 
 /******************************************************/
 /*ImageLinkForm.js, Profile.js */
@@ -199,15 +226,26 @@ legend {
 }
 
 /* profile.js, signout.js */
-/*
 .center-all {
   text-align: center;
   justify-content: center;
 }
-*/
 
 /* text shadow effect*/
 .text-shadow {
   filter: drop-shadow(5px 5px 9px #1d1d5f);
   text-align: center;
 }
+
+/******************************************************/
+/*
+DELETE??
+
+
+
+*/
+
+
+
+
+

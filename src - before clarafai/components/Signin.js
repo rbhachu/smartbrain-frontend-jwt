@@ -71,6 +71,7 @@ class Signin extends Component {
           this.setState({form: (<>Details invalid!<br />Please check your details and try again</>) })
         }
       })
+      
     } else {
       //console.log("FORM INVALID");
       if ( !this.state.email || !this.state.password ) {

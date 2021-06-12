@@ -5,7 +5,7 @@ const FaceRecognition = ({ imageUrl, boxes, errors }) => {
 
   return (
 
-    <div className='center inputimage-div'>
+    <div className='center box-1'>
 
       <div className='relative'>
       <img 
@@ -14,7 +14,7 @@ const FaceRecognition = ({ imageUrl, boxes, errors }) => {
         src={imageUrl} 
         width='500' 
         height='auto' 
-        className={`bg-white shadow-5 b--solid${errors ? ' red' : ' yellow'}`}
+        className={`b--solid bg-white ${errors ? 'red' : 'yellow'} shadow-5 `}
       />
       {boxes &&       
         boxes.map(box =>

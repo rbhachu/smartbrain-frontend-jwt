@@ -1,0 +1,315 @@
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('../assets/Orbitron-VariableFont_wght.ttf');
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', cursive;
+  background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%); /* w3c */
+}
+
+header h1 {
+  font-size: 2.2em;
+  font-family: 'Orbitron', cursive;
+  color: #000;
+  font-weight: 900 !important;
+}
+
+header h1, header img {
+  filter: drop-shadow(5px 5px 4px #4444dd);
+}
+
+/*imagelinkform.js*/
+/*Paste an image link below to find faces in your images*/
+.text1 {
+  filter: drop-shadow(5px 5px 4px #4444dd);
+
+}
+
+.text2 {
+  filter: drop-shadow(5px 5px 9px #1d1d5f);
+  text-align: center;
+}
+
+
+h2 {font-size: 1.2em;}
+h3 {}
+
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  padding: 10px;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+/******************************************************/
+header {
+  position: relative;
+  bottom: -10px;
+  margin-bottom: 0px
+}
+@media screen and (min-width: 0px) and (max-width: 800px) {
+  header {
+    position: relative;
+    bottom: 0px;
+    margin-bottom: 10px
+  }
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.Tilt {
+  /*background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);*/ /* w3c */
+  width: 50vmin !important;
+  height: inherit !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/******************************************************/
+/* TABS */
+.tab-list {
+  /*border-bottom: 1px solid #ccc;*/
+  padding-left: 10px;
+  margin: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 4px 4px 8px 0px rgba( 0, 0, 0, 0.2 ); 
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+  box-shadow: none !important; 
+  position: relative;
+  bottom: 0px !important;
+}
+
+.tab-list li {
+  font-size: 1em;
+  font-family: 'Orbitron', cursive;
+  color: #000;
+  font-weight: 100;
+  background-color: #ccc;
+  border-left: 1px solid #999;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  border-bottom: none;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0 5px 0px 0;
+}
+
+.tab-list li:hover {
+  background-color: #ffde37;
+  color: #000;
+}
+
+.tab-list-active {
+  color: #fff !important;
+  font-weight: 900 !important;
+  border: none !important;
+  z-index: 2 !important;
+  position: relative;
+  bottom: -1px;
+}
+
+.content {
+  min-height: 80vh;
+  padding: 20px;
+  border: 0px solid #999 !important;
+}
+
+.content, .tab-list-active {
+  background-color: rgba(15, 15, 15, 0.3) !important;
+}
+
+
+/******************************************************/
+/* ImageLinkForm */
+.form {
+  min-width: 50vmax;
+  background:
+  radial-gradient(circle farthest-side at 0% 50%,#333 23.5%,rgba(240,166,17,0) 0)21px 30px,
+  radial-gradient(circle farthest-side at 0% 50%,#000 24%,rgba(240,166,17,0) 0)19px 30px,
+  linear-gradient(#333 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#333 0)0 0,
+  linear-gradient(150deg,#333 24%,#000 0,#000 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#000 0,#000 76%,#333 0)0 0,
+  linear-gradient(30deg,#333 24%,#000 0,#000 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#000 0,#000 76%,#333 0)0 0,
+  linear-gradient(90deg,#000 2%,#333 0,#333 98%,#000 0%)0 0 #333;
+  background-size:40px 60px;
+}
+
+form {
+}
+form input {
+}
+
+button {
+  cursor: pointer;
+}
+
+legend {
+  display: none;
+}
+
+
+/******************************************************/
+/* form status and errors messages */
+.error, .status {
+  width: fit-content;
+  line-height: 175%; /* as we are using Tachyons, best to set percentage rather than actual value*/
+  text-align: center;
+}
+
+/*
+.status {
+  font-size: 1em;
+  font-family: 'Orbitron', cursive;
+  font-weight: 500;
+  padding: 10px;
+  text-align: center !important;
+  width: fit-content;
+  justify-content: center !important;
+  display: grid; 
+  word-wrap: break-word;
+}
+*/
+
+/*
+.error  {
+  border: 3px solid #ff4136;
+  color: white;
+  background-color: #ff4136;
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 0 0 0 0;
+  text-align: center !important;
+}
+*/
+
+
+/* input form hightlight border if error */
+.error-input  {
+}
+.error-bdr {
+}
+
+
+
+/******************************************************/
+/* App.css */
+.App {
+  text-align: center;
+}
+
+/* FaceRecognition.css */
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #FF5EDF inset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#inputimage {
+
+}
+
+
+/* Signin.css */
+.hover-black:hover {
+  background-color: #000 !important;
+}
+
+/* Register.css */
+.hover-black:hover {
+  background-color: #000 !important;
+}
+
+.user-text {
+  word-wrap: break-word !important;
+  flex: auto !important;
+}
+
+
+
+/*OBSOLETE???*****************************************************/
+/* Modal.css */
+#modal-root {
+  position: relative;
+  z-index: 999;
+}
+
+.modal-close {
+  font-size: 3rem;
+  font-style: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+/* Profile.css */
+.profile-modal {
+  background-color: rgba(255,255, 255,0.8);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*OBSOLETE???*****************************************************/
+
+.name-value {
+
+  /*break long words to stop overspill*/
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+
+
+
+
+

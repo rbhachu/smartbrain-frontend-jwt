@@ -1,0 +1,123 @@
+
+/*************************************************************************/
+/*
+75% 345 x 208.5 - 365
+.......................
+100% 460 x 278 - 480
+90% 414 x 250.2 - 434
+80% 368 x 222.4 x388
+70% 322 x 194.6 x342
+60% 276 x 166.8 - 0/364
+50% 230 x 139
+25% 116 x 70
+*/
+
+/* @Media */
+/* size1 */
+@media screen and (min-width: 0px) and (max-width: 364px) {
+    .error span, .cursor-pointer span {
+      font-size: 1.1em;
+    }
+    .card-front, .card-image {
+      height: 167px;
+    }
+    .card-front {
+      width: 276px;
+    }
+    .card-content-front .card-title,  .card-content-back .card-title {
+      line-height: 1em;
+    }
+    .card-content-front .card-title {
+      font-size: 1.7em;
+    }
+    .card-content-back .card-title {
+      font-size: 1.6em;
+    }
+    .card-date, .card-rating, .card-content-front .card-desc, .card-content-back .card-desc {
+      font-size: 0.85em;
+    }
+    .card-content-front .card-desc, .card-content-back .card-desc {
+      line-height: 1.1em;
+    }
+  }
+  /* size 2 */
+  @media screen and (min-width: 365px){
+    .error span, .cursor-pointer span {
+      font-size: 1.2em;
+    }
+    .card-front, .card-image {
+      height: 209px;
+    }
+    .card-front {
+      width: 345px;
+    }
+    .card-content-front .card-title,  .card-content-back .card-title {
+      line-height: 1em;
+    }
+    .card-content-front .card-title {
+      font-size: 2em;
+    }
+    .card-content-back .card-title {
+      font-size: 1.9em;
+    }
+    .card-date, .card-rating, .card-content-front .card-desc, .card-content-back .card-desc {
+      font-size: 1em;
+    }
+    .card-content-front .card-desc, .card-content-back .card-desc {
+      line-height: 1.2em;
+    }
+  }
+  /* size 3 */
+  @media screen and (min-width: 434px){
+    .error span, .cursor-pointer span {
+      font-size: 1.3em;
+    }
+    .card-front, .card-image {
+      height: 250px;
+    }
+    .card-front {
+      width: 414px;
+    }
+    .card-content-front .card-title,  .card-content-back .card-title {
+      line-height: 1.1em;
+    }
+    .card-content-front .card-title {
+      font-size: 2.3em;
+    }
+    .card-content-back .card-title {
+      font-size: 2.2em;
+    }
+    .card-date, .card-rating, .card-content-front .card-desc, .card-content-back .card-desc {
+      font-size: 1.1em;
+    }
+    .card-content-front .card-desc, .card-content-back .card-desc {
+      line-height: 1.3em;
+    }
+  }
+  /* size 4  */ /*480*/
+  @media screen and (min-width: 480px){
+    .error span, .cursor-pointer span {
+      font-size: 1.4em;
+    }
+    .card-front, .card-image {
+      height: 278px;
+    }
+    .card-front {
+      width: 460px;
+    }
+    .card-content-front .card-title,  .card-content-back .card-title {
+      line-height: 1.1em;
+    }
+    .card-content-front .card-title {
+      font-size: 2.6em;
+    }
+    .card-content-back .card-title {
+      font-size: 2.4em;
+    }
+    .card-date, .card-rating, .card-content-front .card-desc, .card-content-back .card-desc {
+      font-size: 1.1em;
+    }
+    .card-content-front .card-desc, .card-content-back .card-desc {
+      line-height: 1.3em;
+    }
+  }  

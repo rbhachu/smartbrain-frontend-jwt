@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import { Alert } from 'reactstrap';
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -41,9 +42,15 @@ class Register extends Component {
   }
 
 
+  saveAuthTokenInSessions = (token) => { 
+    window.sessionStorage.setItem('token', token);
+  }
+
+
 handleSubmit = (e) => {
   e.preventDefault();
 
+// if form details VALID 
   if (formValid(this.state)) {
     console.log("FORM VALID");
     this.setState({form: ''}) // clear form error
@@ -56,7 +63,8 @@ handleSubmit = (e) => {
       `);
     */
 
-
+/////////////////////////////////////////////////////////////////////////
+// Register New User
     fetch(`${process.env.REACT_APP_SERVER_URL}/register`, { // remote heroku version 
         method: 'post',
         headers: {'Content-Type': 'application/json'},
@@ -71,17 +79,43 @@ handleSubmit = (e) => {
         //if (user) { // check user data passing
         if (user.id) { // does the user exist? Did we receive a user with a property of id?
             this.props.loadUser(user); // add new user to database
-            this.props.onRouteChange('home'); // if they do load home route
+            //this.props.onRouteChange('home'); // if they do load home route
+        } else {
+          // add error status to page if cant connect to postgresql?
+          // test by connecting to invalid db link in .env???
+          // add error status too
         }
     })
     //console.log(this.state);
     //this.props.onRouteChange('home'); // on form submit change route to home
 
-
+/////////////////////////////////////////////////////////////////////////
+//Auto Login New User into SmartBrain & Redirect to Home Route
+    fetch(`${process.env.REACT_APP_SERVER_URL}/signin`, {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // if login details valid
+      if (data && data.success === "true") {
+        this.saveAuthTokenInSessions(data.token)
+        this.props.loadUser(data.user)
+        this.props.onRouteChange('home');
+      // if login details invalid
+      } else {
+        this.setState({form: 'Login details invalid, please check your details and try again'})
+      }
+    })
+/////////////////////////////////////////////////////////////////////////
+// if form details INVALID
   } else {
     console.log("FORM INVALID");
     //this.setState({form: 'Please fix form errors!'})
-
     if ( !this.state.name || !this.state.email || !this.state.password ) {
       //console.log('null1')
       this.setState({form: 'Please enter details'})
@@ -89,12 +123,11 @@ handleSubmit = (e) => {
       //console.log('null2')
       this.setState({form: 'Please fix form errors!'})
     }
-
   }
-
 };
 
 
+// on form change events
 handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -130,19 +163,19 @@ render() {
   const { onRouteChange } = this.props; // destructuring, avoids repeating this.state
 
   return (
-    <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
-      <main className="pa4 black-80">
+    <article className="center">
+      <main className="">
         <div className="measure">
           <legend className="f1 fw6 ph0 mh0">Register</legend>
 
             <form id="register">
 
-            <fieldset id="register" className="ba b--transparent ph0 mh0">
+            <fieldset id="register" className="ba b--transparent ph0 mh0 text2">
 
               <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
+                <label className="db lh-copy f6 black b" htmlFor="name">Name</label>
                 <input
-                  className={`b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100${formErrors.name && ' error-input'}`}
+                  className={`pa2 input-reset ba bg-white hover-bg-black hover-white w-100${formErrors.name && ' ba bw2 b--red'}`}
                   placeholder="Enter Name"
                   type="text"
                   name="name"
@@ -150,14 +183,14 @@ render() {
                   onChange={this.handleChange}
                 />
                 {formErrors.name && (
-                  <span className="error">{formErrors.name}</span>
+                  <span className="center bg-red white ma3 pa2 ttc f5 shadow-1">{formErrors.name}</span>
                 )}
               </div>
 
               <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+                <label className="db lh-copy f6 black b" htmlFor="email-address">Email</label>
                 <input
-                  className={`b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100${formErrors.email && ' error-input'}`} 
+                  className={`pa2 input-reset ba bg-white hover-bg-black hover-white w-100${formErrors.email && ' ba bw2 b--red'}`} 
                   placeholder="Enter Email"
                   type="email"
                   name="email"
@@ -165,14 +198,14 @@ render() {
                   onChange={this.handleChange}
                 />
                 {formErrors.email && (
-                  <span className="error">{formErrors.email}</span>
+                  <span className="center bg-red white ma3 pa2 ttc f5 shadow-1">{formErrors.email}</span>
                 )}
               </div>
 
               <div className="mv3">
-                <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                <label className="db lh-copy f6 black b" htmlFor="password">Password</label>
                 <input
-                  className={`b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100${formErrors.password && ' error-input'}`}
+                  className={`pa2 input-reset ba bg-white hover-bg-black hover-white w-100${formErrors.password && ' ba bw2 b--red'}`}
                   placeholder="Enter Password"
                   type="password"
                   name="password"
@@ -180,7 +213,7 @@ render() {
                   onChange={this.handleChange}
                 />
                 {formErrors.password && (
-                  <span className="error">{formErrors.password}</span>
+                  <span className="center bg-red white ma3 pa2 ttc f5 shadow-1">{formErrors.password}</span>
                 )}
               </div>
 
@@ -189,20 +222,16 @@ render() {
             <div className="">
               <input
                 onClick={this.handleSubmit} // function that gets called to change state to 'home'
-                className="b ph3 pv2 input-reset ba bg-black white grow pointer f6 dib" 
+                className="ph3 pv2 input-reset ba bg-black white grow pointer f6 dib center hover-bg-yellow ttu shadow-1" 
                 type="submit" 
                 value="Register"
               />
               {this.state.form && (
-                  <span className="error">{this.state.form}</span>
+                  <span className="center bg-red white ma3 pa2 ttc f5 shadow-1">{this.state.form}</span>
               )}
             </div>
 
             </form>
-
-            <div className="lh-copy mt3">
-              <p onClick={() => onRouteChange('signin')} className="f6 link dim black b db pointer">or Signin?</p>
-            </div>
 
         </div>
       </main>

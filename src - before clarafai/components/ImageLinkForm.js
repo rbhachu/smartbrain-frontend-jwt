@@ -4,8 +4,7 @@ import Rank from '../components/Rank';
 const ImageLinkForm = ({ input, onInputChange, onSubmitImage, errors, status, name, entries }) => {
 
   return (
-
-    <div className='center'>
+    <>
     
       <main className='text-shadow'>
 
@@ -14,14 +13,14 @@ const ImageLinkForm = ({ input, onInputChange, onSubmitImage, errors, status, na
           <span className=""><Rank entries={entries} /></span>
         </p>
 
-        <h2 className='db fw6 lh-copy f4 navy b i ttc mv4'>
+        <h2 className='db fw6 lh-copy f4 black b i ttc mv4'>
           Paste an image link below to find faces in your images!
         </h2>
       
       </main>
 
 
-      <div className='form pa3 shadow-5 ba bw0 b--black center'>
+      <div className='form pa3 shadow-5 ba bw0 b--black'>
 
           <input 
             id="imageupload" 
@@ -38,11 +37,10 @@ const ImageLinkForm = ({ input, onInputChange, onSubmitImage, errors, status, na
       
       </div>
       
-      { errors && <p className='error bg-red white pa2 f4 ttc shadow-1 lh-copy center tc ma4'>{`${errors}`}</p> }
-      { status && <p className='status bg-yellow black pa2 f4 ttc shadow-1 lh-copy center tc ma4'>{`${status}`}</p> }
-      
-    </div>
+      { errors && <p className='error tc bg-red white ma4 pa2 f5 ttc shadow-1'>{`${errors}`}</p> }
+      { status && <p className='status tc bg-yellow black ma4 pa2 f5 ttc shadow-1'>{`${status}`}</p> }
 
+    </>
   );
   
 }
