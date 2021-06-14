@@ -6,8 +6,8 @@
 :rocket: **[View Live Demo](https://rbhachu-smartbrain-f-master.herokuapp.com/)** :rocket:<br>
 
 ![SmartBrain Preview](./src/imgs-readme/site-demo.gif)
-
 </div>
+<br>
 
 
 ## How to use the App
@@ -19,9 +19,7 @@ You can use the following test login details *
 <b>password:</b> a
 
 ![Login](./src/imgs-readme/login.png)
-
-*
-_**Use lowercase as case sensitive**_ <br>
+*_**Use lowercase as case sensitive**_<br>
 _**Please note: Site may take a few seconds to initially load due to using free tier on Heroku .**_
 <br>
 
@@ -37,7 +35,7 @@ Once logged in simply copy, then paste an image url from the web (example: https
 ![Face Detection](./src/imgs-readme/face-detect.png)
 <br>
 
-Each time you upload an image the image upload count value is incremented by +1.<br><br>
+Each time you upload an image the image upload count value is incremented by +1.<br>
 You can view the total images uploaded in the 'View Profile' tab, along with the Rank Badge status, which is fed from AWS Lambda.
 
 ![Image Count & Rank Badge](./src/imgs-readme/rank.png)
@@ -46,15 +44,15 @@ The Rank Badge updates based on the current image upload count.
 <br>
 Image Upload Count | Rank Badge
 ------------ | -------------
-1 | 😐
-2 | 😃
-3 | 😀
-4 | 😊
-5 | 😉
-6 | 😍
-7 | 🔶
-8 | 🔷
-9 or over | 🚀
+0 | 😐
+1 | 😃
+2 | 😀
+3 | 😊
+4 | 😉
+5 | 😍
+6 | 🔶
+7 | 🔷
+8 or over | 🚀
 <p/><br>
 
 
@@ -80,8 +78,8 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 
 <li>Ranking badge element served from external AWS Lambda service</li>
 
-![Rank Badge AWS Lamda](./src/imgs-readme/aws-lambda-rank.png)
-![AWS Lamda](./src/imgs-readme/aws-lambda.png)
+![Rank Badge AWS Lambda](./src/imgs-readme/aws-lambda-rank.png)
+![AWS Lambda](./src/imgs-readme/aws-lambda.png)
 <br>
 
 <li>User authentication using JSON Web Tokens (JWT)</li>
@@ -89,7 +87,7 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 ![JWT](./src/imgs-readme/jwt.png)
 <br>
 
-<li>With a Redis Database for Session Management</li>
+<li>With a Redis Database for Token Management</li>
 
 ![Redis](./src/imgs-readme/redis.png)
 <br>
@@ -124,7 +122,7 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 ![Form Validation](./src/imgs-readme/form-validation.png)
 <br>
 
-Bcrypt password encryption/decryption to/from PostgreSQL Database</li>
+<li>Bcrypt password encryption/decryption to/from PostgreSQL Database</li>
 
 ![Bcrypt](./src/imgs-readme/bcrypt.png)
 <br>
@@ -148,7 +146,7 @@ Bcrypt password encryption/decryption to/from PostgreSQL Database</li>
 
 ![Heroku](./src/imgs-readme/heroku1.png)
 ![Heroku](./src/imgs-readme/heroku2.png)
-</p><br>
+</p>
 
 
 ## Dependencies/NPM Modules
@@ -178,9 +176,9 @@ npm install
 
 
 ## Configuration
-<p>There is a settings file in the root of the project folder called '.env' which is also know as the Enviromental Variables file.
+<p>There is a settings file in the root of the project folder called '.env' which is also know as the Environmental Variables file.
 <br><br>
-Using this file you can control how you want the app to run; Remoteley or Locally.
+Using this file you can control how you want the app to run; Remotely or Locally.
 <br><br>
 To run the app Remotely, overwrite the current values in the .env file with the following values;
 <br>
@@ -192,7 +190,7 @@ REACT_APP_CLIENT_URL=https://rbhachu-smartbrain-f-master.herokuapp.com
 #BACK-END SERVER
 REACT_APP_SERVER_URL=https://rbhachu-smartbrain-b-master.herokuapp.com
 
-#AWS LAMDA
+#AWS Lambda
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
@@ -206,11 +204,11 @@ REACT_APP_SERVER_URL=http://localhost:3001
 #BACK-END SERVER
 REACT_APP_CLIENT_URL=http://localhost:3000
 
-#AWS LAMDA
+#AWS Lambda
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
-<i>\* You will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
+<i>* You will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
 The Repo also includes full instructions on how to do this too.<br>
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 </p><br>
@@ -232,15 +230,14 @@ and display the project in the browser.</p>
 <br>
 
 
-## Author
-👤 **Rishi Singh Bhachu**<br>
-:octocat: [GitHub](https://github.com/rbhachu)<br>
-<a target="_blank" title="https://www.linkedin.com/in/RishiSinghBhachu/" href="https://www.linkedin.com/in/RishiSinghBhachu/"><img src="https://img.shields.io/badge/-Rishi&nbsp;Singh&nbsp;Bhachu-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+## Issues
+Please drop me a message if you have any issues or problems running the project.
 <br>
 
 
-## Issues
-Please drop me a message if you have any issues or problems running the project.
+## Author
+👤 **Rishi Singh Bhachu**<br>
+Contact me via [LinkedIn](https://www.linkedin.com/in/rishisinghbhachu/)
 <br>
 
 
