@@ -19,14 +19,17 @@ You can use the following test login details;
 <b>password:</b> a 
 
 ![Login](./src/imgs-readme/login.png)
+
 <br>
 Or click on the 'Register' tab and create your own new login details to use instead.
 
 ![Register](./src/imgs-readme/register.png)
+
 <br>
 Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API.
 
 ![Image Link](./src/imgs-readme/image-link.png)
+
 <br>
 Each time you upload an image your image count value you is incremented by +1 value as the image upload count. You can view your total Image upload count in the 'View Profile' tab, along with a Rank Badge, which is fed from AWS Lambda. The Rank Badge will then change based on the current image upload count.
 
@@ -49,18 +52,34 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 
 ## Features
 <p>
--Multi-face detection using clarifai face api
+-Multi-Face detection using Clarifai Face Detection API
+
+![Multi-Face Detection](./src/imgs-readme/multi-face-detection.png)
 <br><br>
+
 -Ranking badge element served from external AWS Lambda service
+![Rank Badge AWS Lamda](./src/imgs-readme/aws-lambda-rank.png)
+![AWS Lamda](./src/imgs-readme/aws-lambda.png)
 <br><br>
+
 -User authentication using JSON Web Tokens (JWT) with Redis server for session management
+![JWT](./src/imgs-readme/jwt.png)
+![Redis](./src/imgs-readme/redis.png)
 <br><br>
+
 -User profile with capture of image uploads, stored via postgresql database
+![PostgreSQL](./src/imgs-readme/postgresql.png)
 <br><br>
+
 -Portable Web App (PWA) enabled 
+![PWA](./src/imgs-readme/pwa.png)
 <br><br>
+
+
 -Responsive layout using Flexbox
+![Responsive Layout](./src/imgs-readme/responsive.png)
 <br><br>
+
 -TS Particles for background animation
 <br><br>
 -Parallax tilt for interactive site logo
@@ -78,13 +97,13 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 
 
 ## Dependencies/NPM Modules
-[react v17.0.2](https://www.npmjs.com/package/react) - Part of React core<br>
-[react-dom v17.0.2](https://www.npmjs.com/package/react-dom) - Part of React core<br>
-[react-scripts v4.0.3](https://www.npmjs.com/package/react-scripts) - Part of React core<br>
-[tachyons v4.12.0](https://www.npmjs.com/package/tachyons) - For dynamic css<br>
-[prop-types v15.7.2](https://www.npmjs.com/package/prop-types) - for tab interface<br>
-[react-parallax-tilt v1.5.23](https://www.npmjs.com/package/react-parallax-tilt) - For background animation<br>
-[react-tsparticles v1.28.0](https://www.npmjs.com/package/react-tsparticles) - For interactive logo heading<br>
+[React v17.0.2](https://www.npmjs.com/package/react) - Part of React core<br>
+[React-dom v17.0.2](https://www.npmjs.com/package/react-dom) - Part of React core<br>
+[React-scripts v4.0.3](https://www.npmjs.com/package/react-scripts) - Part of React core<br>
+[Tachyons v4.12.0](https://www.npmjs.com/package/tachyons) - For dynamic css<br>
+[Prop-Types v15.7.2](https://www.npmjs.com/package/prop-types) - for tab interface<br>
+[React-Parallax-Tilt v1.5.23](https://www.npmjs.com/package/react-parallax-tilt) - For background animation<br>
+[React-TSParticles v1.28.0](https://www.npmjs.com/package/react-tsparticles) - For interactive logo heading<br>
 <br>
 
 

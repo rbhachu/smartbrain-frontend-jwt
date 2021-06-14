@@ -10,7 +10,6 @@ import FaceRecognition from '../components/FaceRecognition';
 import imgBrain from '../assets/brain-color.png'
 import Tilt from 'react-parallax-tilt';
 import Particles from "react-tsparticles";
-import 'tachyons';
 
 
   const initialState = {
