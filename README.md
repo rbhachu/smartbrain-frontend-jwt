@@ -12,14 +12,13 @@
 
 ## How to use the App
 <p>
-You can use the following test login details *
+You can use the following test login details <i>(ensure lowercase as case sensitive)</i>
 <br>
 <b>user:</b> a@a.com
 <br>
 <b>password:</b> a
 
-![Login](./src/imgs-readme/login.png)
-*_**Use lowercase as case sensitive**_<br>
+![Login](./src/imgs-readme/login.png)<br>
 _**Please note: Site may take a few seconds to initially load due to using free tier on Heroku .**_
 <br>
 
@@ -29,20 +28,20 @@ Or click on the 'Register' tab and create your own new login details to use inst
 ![Register New User](./src/imgs-readme/register-user.png)
 <br>
 
-Once logged in simply copy, then paste an image url from the web (example: https://rbhachu-smartbrain-f-master.herokuapp.com/test-image.jpg) into the search input field, then click the 'DETECT' button to run the Face Detection API.
+Once logged in simply copy, then paste an image url from the web <i>(example: https://rbhachu-smartbrain-f-master.herokuapp.com/test-image.jpg)</i> into the search input field, then click the 'DETECT' button to run the Face Detection API.
 
 ![Image Link](./src/imgs-readme/image-link.png)
 ![Face Detection](./src/imgs-readme/face-detect.png)
 <br>
 
-Each time you upload an image the image upload count value is incremented by +1.<br>
-You can view the total images uploaded in the 'View Profile' tab, along with the Rank Badge status, which is fed from AWS Lambda.
+Each time you upload an image the 'Total Images Submitted' value is incremented by +1.<br>
+You can view the current total in the 'View Profile' tab, along with the 'Current Rank 'Badge', which is fed from AWS Lambda.
 
 ![Image Count & Rank Badge](./src/imgs-readme/rank.png)
 
 The Rank Badge updates based on the current image upload count.
 <br>
-Image Upload Count | Rank Badge
+Total Images Submitted | Current Rank 'Badge'
 ------------ | -------------
 0 | 😐
 1 | 😃
@@ -60,12 +59,14 @@ Image Upload Count | Rank Badge
 <p>
 A React App that detects, then highlights faces in web images. Including a user profile with image upload count and a Ranking Badge served from <b>AWS Lambda</b>. 
 <br><br>
-Built with <b>React.js</b>, <b>Node.js</b>, <b>Express</b>, <b>Bcrypt</b>, <b>PostgreSQL</b>, <b>Redis</b>, <b>Tachyon CSS</b>, <b>Clarifai Face Detection API</b>, and all running on <b>Heroku Servers</b>. 
+Built with <b>React.js</b>, <b>Node.js</b>, <b>Express</b>, <b>Bcrypt</b>, <b>PostgreSQL</b>, <b>Redis</b>, <b>Tachyon CSS</b>, <b>Clarifai Face Detection API</b>, and all running on <b>Heroku Servers</b> 'synched' with <b>GitHub</b>. 
 <br><br>
 <b>Back-end Server Repo Link:</b> https://github.com/rbhachu/smartbrain-backend-jwt
-<br>
+<br><br>
 
-_This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses, but has since been heavily updated by myself personally, after completing both courses._
+<i>Thanks to Andrei Neagoie for creating the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses which SmartBrain is based on.
+<br><br>
+Since completing both courses and further personal development I have also updated the SmartBrain app even further adding numerous updates, bug fixes etc but namely migrating it to run 100% remotely with Heroku for hosting and running the Redis and PostgreSQL servers too.</i>
 </p><br>
 
 
@@ -76,7 +77,7 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 ![Multi-Face Detection](./src/imgs-readme/multi-face-detection.png)
 <br>
 
-<li>Ranking badge element served from external AWS Lambda service</li>
+<li>Ranking badge element served from external AWS Lambda serverless server</li>
 
 ![Rank Badge AWS Lambda](./src/imgs-readme/aws-lambda-rank.png)
 ![AWS Lambda](./src/imgs-readme/aws-lambda.png)
@@ -122,7 +123,7 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 ![Form Validation](./src/imgs-readme/form-validation.png)
 <br>
 
-<li>Bcrypt password encryption/decryption to/from PostgreSQL Database</li>
+<li>Bcrypt user password encryption/decryption to/from PostgreSQL Database</li>
 
 ![Bcrypt](./src/imgs-readme/bcrypt.png)
 <br>
@@ -142,7 +143,7 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 ![Fav Icon](./src/imgs-readme/fav.png)
 <br>
 
-<li>Deployed via Git and running on Heroku Servers</li>
+<li>The Heroku Server is also synched with the associated GitHub repo, so changes are automatically deployed</li>
 
 ![Heroku](./src/imgs-readme/heroku1.png)
 ![Heroku](./src/imgs-readme/heroku2.png)
@@ -209,7 +210,7 @@ REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
 <i>* You will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
-The Repo also includes full instructions on how to do this too.<br>
+The SmartBrain Back-End Server includes full instructions on how to do this too.<br>
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 </p><br>
 
