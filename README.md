@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gelstudios/gitfiti.svg?branch=master)]() [![Heroku](https://heroku-badge.herokuapp.com/?app=rbhachu-smartbrain-f-master)]() 
+[![Build Status](https://travis-ci.org/gelstudios/gitfiti.svg?branch=master)](https://github.com/rbhachu/smartbrain-frontend-jwt) [![Heroku](https://heroku-badge.herokuapp.com/?app=rbhachu-smartbrain-f-master)](https://github.com/rbhachu/smartbrain-frontend-jwt) 
 
 
 <h1 align="center">SmartBrain Master (Front-End Client)</h1>
