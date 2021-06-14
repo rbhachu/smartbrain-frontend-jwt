@@ -19,6 +19,7 @@ You can use the following test login details *
 <b>password:</b> a
 
 ![Login](./src/imgs-readme/login.png)
+
 *
 _**Use lowercase as case sensitive**_ <br>
 _**Please note: Site may take a few seconds to initially load due to using free tier on Heroku .**_
@@ -33,13 +34,16 @@ Or click on the 'Register' tab and create your own new login details to use inst
 Once logged in simply copy, then paste an image url from the web (example: https://rbhachu-smartbrain-f-master.herokuapp.com/test-image.jpg) into the search input field, then click the 'DETECT' button to run the Face Detection API.
 
 ![Image Link](./src/imgs-readme/image-link.png)
+![Face Detection](./src/imgs-readme/face-detect.png)
 <br>
 
 Each time you upload an image the image upload count value is incremented by +1.<br><br>
-You can view the total images uploaded in the 'View Profile' tab, along with the Rank Badge status, which is fed from AWS Lambda. The Rank Badge updates based on the current image upload count.
+You can view the total images uploaded in the 'View Profile' tab, along with the Rank Badge status, which is fed from AWS Lambda.
 
 ![Image Count & Rank Badge](./src/imgs-readme/rank.png)
 
+The Rank Badge updates based on the current image upload count.
+<br>
 Image Upload Count | Rank Badge
 ------------ | -------------
 1 | 😐
@@ -115,7 +119,12 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 ![Tilt](./src/imgs-readme/tilt.gif)
 <br>
 
-<li>Form validation with Bcrypt for password encryption/decryption to PostgreSQL Database</li>
+<li>Form validation</li>
+
+![Form Validation](./src/imgs-readme/form-validation.png)
+<br>
+
+Bcrypt password encryption/decryption to/from PostgreSQL Database</li>
 
 ![Bcrypt](./src/imgs-readme/bcrypt.png)
 <br>
@@ -136,6 +145,9 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 <br>
 
 <li>Deployed via Git and running on Heroku Servers</li>
+
+![Heroku](./src/imgs-readme/heroku1.png)
+![Heroku](./src/imgs-readme/heroku2.png)
 </p><br>
 
 
