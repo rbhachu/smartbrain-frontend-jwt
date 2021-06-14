@@ -168,23 +168,29 @@ Since completing both courses and further personal development I have also updat
 git clone https://github.com/rbhachu/smartbrain-frontend-jwt.git
 ```
 
-<p>Once the repo has been downloaded, 'CD' to the newly downloaded project folder ('cd smartbrain-frontend'). Then execute the following command in your terminal.<p>
+<p>Once the repo has been downloaded, 'CD' to the newly downloaded project folder. Then execute the following command in your terminal.<p>
 
 ```sh
 npm install
+```
+
+<p>Also check for any updates by running the following command too.<p>
+
+```sh
+npm update
 ```
 <br>
 
 
 ## Configuration
-<p>There is a settings file in the root of the project folder called '.env' which is also know as the Environmental Variables file.
+<p>There is a settings file in the root of the project folder called '.env' which is also known as the Environmental Variables file.
 <br><br>
 Using this file you can control how you want the app to run; Remotely or Locally.
 <br><br>
 To run the app Remotely, overwrite the current values in the .env file with the following values;
 <br>
 
-```sh
+```env
 #FRONT-END CLIENT
 REACT_APP_CLIENT_URL=https://rbhachu-smartbrain-f-master.herokuapp.com
 
@@ -198,7 +204,7 @@ REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 Alternatively, to run the app Locally, overwrite the current values in the .env file with the following values; *
 <br>
 
-```sh
+```env
 #FRONT-END CLIENT
 REACT_APP_SERVER_URL=http://localhost:3001
 
