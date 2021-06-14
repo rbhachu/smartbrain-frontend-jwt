@@ -19,16 +19,17 @@ You can use the following test login details;
 <b>password:</b> a 
 
 ![Login](./src/imgs-readme/login.png)
-
-<br><br>
+<br>
 Or click on the 'Register' tab and create your own new login details to use instead.
-![Register](./src/imgs-readme/register.png)
 
-<br><br>
+![Register](./src/imgs-readme/register.png)
+<br>
 Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API.
+
 ![Image Link](./src/imgs-readme/image-link.png)
-<br><br>
+<br>
 Each time you upload an image your image count value you is incremented by +1 value as the image upload count. You can view your total Image upload count in the 'View Profile' tab, along with a Rank Badge, which is fed from AWS Lambda. The Rank Badge will then change based on the current image upload count.
+
 ![Image Count & Rank Badge](./src/imgs-readme/rank.png)
 <p/><br>
 
@@ -40,7 +41,7 @@ A React App that detects, then highlights faces in web images. Including a user 
 Built with React.js, Node.js, Express, PostgreSQL, Redis, Tachyon CSS, Clarifai Face Detection API, and all running on Heroku Servers. 
 <br><br>
 <b>Back-end Server Repo Link:</b> https://github.com/rbhachu/smartbrain-backend-jwt
-<br><br>
+<br>
 
 _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses, but has since been heavily updated by myself personally, after completing both courses._
 </p><br>
@@ -120,7 +121,6 @@ REACT_APP_SERVER_URL=https://rbhachu-smartbrain-b-master.herokuapp.com
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 <br>
-<br>
 Alternatively, to run the app Locally, overwrite the current values in the .env file with the following values; *
 <br>
 
@@ -135,7 +135,6 @@ REACT_APP_CLIENT_URL=http://localhost:3000
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
-<br>
 <i>* You will also need to download the SmartBrain Back-End Server Repo and install it too. The Repo also includes full instructions on how to do this too.
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 </p><br>
@@ -152,7 +151,7 @@ npm start
 [http://localhost:3000](http://localhost:3000)
 
 and display the project in the browser.</p>
-![SmartBrain Preview](./src/images/site-preview.png)
+![SmartBrain Preview](./src/imgs-readme/site-preview.png)
 <br>
 
 
