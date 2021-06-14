@@ -17,7 +17,7 @@ You can use the following test login details;
 <b>user:</b> a@a.com
 <br>
 <b>password:</b> a
-<br>
+<br><br>
 Or click on the 'Register' tab and create your own new login details to use instead.
 <br><br>
 Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API. [show animation???]
@@ -32,7 +32,7 @@ A React App that detects, then highlights faces in web images. Including a user 
 <br><br>
 Built with React.js, Node.js, Express, PostgreSQL, Redis, Tachyon CSS, Clarifai Face Detection API, and all running on Heroku Servers. 
 <br><br>
-Back-end Server Repo Link:[https://github.com/rbhachu/smartbrain-backend-jwt](https://github.com/rbhachu/smartbrain-backend-jwt)
+Back-end Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt
 <br><br>
 <i>This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses, but has since been heavily updated by myself personally, after completing both courses.</i>
 </p>
