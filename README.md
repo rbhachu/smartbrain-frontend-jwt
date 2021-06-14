@@ -209,8 +209,8 @@ REACT_APP_CLIENT_URL=http://localhost:3000
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
-<i>* You will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
-The SmartBrain Back-End Server includes full instructions on how to do this too.<br>
+<i>* To deploy SmartBrain locally, you will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
+Full instructions on how to do this are included in the repo readme file.<br>
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 </p><br>
 
@@ -222,25 +222,21 @@ Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 npm start
 ```
 
-<p>After a few seconds, your browser should automatically open to the following link;
-
-[http://localhost:3000](http://localhost:3000)
-
-and display the project in the browser.</p>
+<p>After a few seconds, your browser should automatically open to the following link; http://localhost:3000 and display the project in the browser.</p>
 ![SmartBrain Preview](./src/imgs-readme/site-preview.png)
 <br>
 
 
 ## Issues
 Please drop me a message if you have any issues or problems running the project.
-<br>
+<br><br>
 
 
 ## Author
 👤 **Rishi Singh Bhachu**<br>
 Contact me via [LinkedIn](https://www.linkedin.com/in/rishisinghbhachu/)
-<br>
+<br><br>
 
 
 ## Show your support
-It would be greatly appreciated if you could also give this project a ⭐️ too!
+If you liked this project it would be greatly appreciated to show your support by simply giving this repo a ⭐️ rating too, many thanks!
