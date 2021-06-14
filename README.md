@@ -6,7 +6,7 @@
 
 :rocket: **[View Live Demo](https://rbhachu-smartbrain-f-master.herokuapp.com/)** :rocket:<br>
 
-![SmartBrain Preview](./src/images/site-demo.gif)
+![SmartBrain Preview](./src/imgs-readme/site-demo.png)
 
 </div>
 
@@ -16,13 +16,20 @@ You can use the following test login details;
 <br>
 <b>user:</b> a@a.com
 <br>
-<b>password:</b> a
+<b>password:</b> a 
+
+![Login](./src/imgs-readme/login.png)
+
 <br><br>
 Or click on the 'Register' tab and create your own new login details to use instead.
+![Register](./src/imgs-readme/register.png)
+
 <br><br>
-Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API. [show animation???]
+Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API.
+![Image Link](./src/imgs-readme/image-link.png)
 <br><br>
 Each time you upload an image your image count value you is incremented by +1 value as the image upload count. You can view your total Image upload count in the 'View Profile' tab, along with a Rank Badge, which is fed from AWS Lambda. The Rank Badge will then change based on the current image upload count.
+![Image Count & Rank Badge](./src/imgs-readme/rank.png)
 <p/><br>
 
 
@@ -32,7 +39,7 @@ A React App that detects, then highlights faces in web images. Including a user 
 <br><br>
 Built with React.js, Node.js, Express, PostgreSQL, Redis, Tachyon CSS, Clarifai Face Detection API, and all running on Heroku Servers. 
 <br><br>
-Back-end Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt
+<b>Back-end Server Repo Link:</b> https://github.com/rbhachu/smartbrain-backend-jwt
 <br><br>
 
 _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses, but has since been heavily updated by myself personally, after completing both courses._
