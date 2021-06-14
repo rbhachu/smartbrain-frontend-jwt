@@ -66,7 +66,7 @@ Built with <b>React.js</b>, <b>Node.js</b>, <b>Express</b>, <b>Bcrypt</b>, <b>Po
 
 <i>Thanks to Andrei Neagoie for creating the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses which SmartBrain is based on.
 <br><br>
-Since completing both courses and further personal development I have also updated the SmartBrain app even further adding numerous updates, bug fixes etc but namely migrating it to run 100% remotely with Heroku for hosting and running the Redis and PostgreSQL servers too.</i>
+Since completing both courses and further personal development I have also updated the SmartBrain app further extensively, adding numerous updates, bug fixes etc. With the fundamental update being to adapt it to run 100% remotely with Heroku hosting the site in tandem with PostgreSQL DB, Redis DB and AWS Lambda servers too.</i>
 </p><br>
 
 
@@ -209,8 +209,7 @@ REACT_APP_CLIENT_URL=http://localhost:3000
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
-<i>* To deploy SmartBrain locally, you will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
-Full instructions on how to do this are included in the repo readme file.<br>
+<i>* To deploy SmartBrain locally, you will also need to download the SmartBrain Back-End Server Repo and install it too. Full instructions on how to do this are included in the repo readme file.<br>
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 </p><br>
 
@@ -223,6 +222,7 @@ npm start
 ```
 
 <p>After a few seconds, your browser should automatically open to the following link; http://localhost:3000 and display the project in the browser.</p>
+
 ![SmartBrain Preview](./src/imgs-readme/site-preview.png)
 <br>
 
