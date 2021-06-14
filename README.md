@@ -64,35 +64,57 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 <br>
 
 -User authentication using JSON Web Tokens (JWT) 
+
 ![JWT](./src/imgs-readme/jwt.png)
 With Redis server for session management
 ![Redis](./src/imgs-readme/redis.png)
 <br>
 
 -User profile with capture of image uploads, stored via postgresql database
+
 ![PostgreSQL](./src/imgs-readme/postgresql.png)
 <br>
 
 -Portable Web App (PWA) enabled 
+
 ![PWA](./src/imgs-readme/pwa.png)
 <br>
 
 -Responsive layout using Flexbox
+
 ![Responsive Layout](./src/imgs-readme/responsive.png)
-<br><br>
+<br>
 
 -TS Particles for background animation
-<br><br>
+
+![TS Particles](./src/imgs-readme/tsparticles.gif)
+<br>
+
 -Parallax tilt for interactive site logo
-<br><br>
--Form validation with Bcryprt for password encryption/decryption to PostgreSQL Database
-<br><br>
+
+![Tilt](./src/imgs-readme/tilt.gif)
+<br>
+
+-Form validation with Bcrypt for password encryption/decryption to PostgreSQL Database
+
+![Bcrypt](./src/imgs-readme/bcrypt.png)
+<br>
+
 -Tabbed layout
-<br><br>
+
+![Tabbed](./src/imgs-readme/tabbed.png)
+<br>
+
 -Editable user profile
-<br><br>
+
+![Edit Name](./src/imgs-readme/edit-name.png)
+<br>
+
 -Custom site fav icon with support for apple, android etc
-<br><br>
+
+![Fav Icon](./src/imgs-readme/fav.png)
+<br>
+
 -Hosted and running on Heroku Servers (Please Note: Using free tier, so takes a few seconds to warmup servers.)
 </p><br>
 
