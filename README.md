@@ -23,7 +23,7 @@ Or click on the 'Register' tab and create your own new login details to use inst
 Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API. [show animation???]
 <br><br>
 Each time you upload an image your image count value you is incremented by +1 value as the image upload count. You can view your total Image upload count in the 'View Profile' tab, along with a Rank Badge, which is fed from AWS Lambda. The Rank Badge will then change based on the current image upload count.
-<p/>
+<p/><br>
 
 
 ## Description
@@ -34,8 +34,10 @@ Built with React.js, Node.js, Express, PostgreSQL, Redis, Tachyon CSS, Clarifai 
 <br><br>
 Back-end Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt
 <br><br>
-<i>This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses, but has since been heavily updated by myself personally, after completing both courses.</i>
-</p>
+
+_This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy.com/the-complete-web-developer-zero-to-mastery) and [ZTM Junior to Senior Web Developer](https://www.udemy.com/course/the-complete-junior-to-senior-web-developer-roadmap/) courses, but has since been heavily updated by myself personally, after completing both courses._
+</p><br>
+
 
 ## Features
 <p>
@@ -64,7 +66,7 @@ Back-end Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt
 -Custom site fav icon with support for apple, android etc
 <br><br>
 -Hosted and running on Heroku Servers (Please Note: Using free tier, so takes a few seconds to warmup servers.)
-</p>
+</p><br>
 
 
 ## Dependencies/NPM Modules
@@ -75,7 +77,7 @@ Back-end Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt
 [prop-types v15.7.2](https://www.npmjs.com/package/prop-types) - for tab interface<br>
 [react-parallax-tilt v1.5.23](https://www.npmjs.com/package/react-parallax-tilt) - For background animation<br>
 [react-tsparticles v1.28.0](https://www.npmjs.com/package/react-tsparticles) - For interactive logo heading<br>
-
+<br>
 
 
 ## Installation
@@ -89,6 +91,7 @@ git clone https://github.com/rbhachu/smartbrain-frontend-jwt.git
 ```sh
 npm install
 ```
+<br>
 
 
 ## Configuration
@@ -114,7 +117,7 @@ REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 Alternatively, to run the app Locally, overwrite the current values in the .env file with the following values; *
 <br>
 
-```sh
+```
 #FRONT-END CLIENT
 REACT_APP_SERVER_URL=http://localhost:3001
 
@@ -128,8 +131,7 @@ REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 <br>
 <i>* You will also need to download the SmartBrain Back-End Server Repo and install it too. The Repo also includes full instructions on how to do this too.
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
-</p>
-
+</p><br>
 
 
 ## Deployment
@@ -144,17 +146,20 @@ npm start
 
 and display the project in the browser.</p>
 ![SmartBrain Preview](./src/images/site-preview.png)
-
+<br>
 
 
 ## Author
 👤 **Rishi Singh Bhachu**<br>
 :octocat: [GitHub](https://github.com/rbhachu)<br>
 <a target="_blank" title="https://www.linkedin.com/in/RishiSinghBhachu/" href="https://www.linkedin.com/in/RishiSinghBhachu/"><img src="https://img.shields.io/badge/-Rishi&nbsp;Singh&nbsp;Bhachu-0077B5?style=flat&logo=Linkedin&logoColor=white"/></a>
+<br>
 
 
 ## Issues
 Please drop me a message if you have any issues or problems running the project.
+<br>
+
 
 ## Show your support
 It would be greatly appreciated if you could also give this project a ⭐️ too!
