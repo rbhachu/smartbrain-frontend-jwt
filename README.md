@@ -1,47 +1,64 @@
-[![Build Status](https://travis-ci.org/gelstudios/gitfiti.svg?branch=master)](https://github.com/rbhachu/smartbrain-frontend-jwt) [![Heroku](https://heroku-badge.herokuapp.com/?app=rbhachu-smartbrain-f-master)](https://github.com/rbhachu/smartbrain-frontend-jwt) 
-
+[![Build Status](https://travis-ci.org/gelstudios/gitfiti.svg?branch=master)](https://github.com/rbhachu/smartbrain-frontend-jwt) [![Heroku](https://heroku-badge.herokuapp.com/?app=rbhachu-smartbrain-f-master)](https://github.com/rbhachu/smartbrain-frontend-jwt)
 
 <h1 align="center">SmartBrain Master (Front-End Client)</h1>
 <div align="center">
 
 :rocket: **[View Live Demo](https://rbhachu-smartbrain-f-master.herokuapp.com/)** :rocket:<br>
 
-![SmartBrain Preview](./src/imgs-readme/site-demo.png)
+![SmartBrain Preview](./src/imgs-readme/site-demo.gif)
 
 </div>
 
+
 ## How to use the App
 <p>
-You can use the following test login details;
+You can use the following test login details *
 <br>
 <b>user:</b> a@a.com
 <br>
-<b>password:</b> a 
+<b>password:</b> a
 
 ![Login](./src/imgs-readme/login.png)
-
+*
+_**Use lowercase as case sensitive**_ <br>
+_**Please note: Site may take a few seconds to initially load due to using free tier on Heroku .**_
 <br>
+
 Or click on the 'Register' tab and create your own new login details to use instead.
 
-![Register](./src/imgs-readme/register.png)
-
+![Register Tab](./src/imgs-readme/register.png)
+![Register New User](./src/imgs-readme/register-user.png)
 <br>
-Once logged in simply copy, then paste an image url from the web (example:  https://www.website.com/image.png) into the search input field, then click the 'DETECT' button to run the Face Detection API.
+
+Once logged in simply copy, then paste an image url from the web (example: https://rbhachu-smartbrain-f-master.herokuapp.com/test-image.jpg) into the search input field, then click the 'DETECT' button to run the Face Detection API.
 
 ![Image Link](./src/imgs-readme/image-link.png)
-
 <br>
-Each time you upload an image your image count value you is incremented by +1 value as the image upload count. You can view your total Image upload count in the 'View Profile' tab, along with a Rank Badge, which is fed from AWS Lambda. The Rank Badge will then change based on the current image upload count.
+
+Each time you upload an image the image upload count value is incremented by +1.<br><br>
+You can view the total images uploaded in the 'View Profile' tab, along with the Rank Badge status, which is fed from AWS Lambda. The Rank Badge updates based on the current image upload count.
 
 ![Image Count & Rank Badge](./src/imgs-readme/rank.png)
+
+Image Upload Count | Rank Badge
+------------ | -------------
+1 | 😐
+2 | 😃
+3 | 😀
+4 | 😊
+5 | 😉
+6 | 😍
+7 | 🔶
+8 | 🔷
+9 or over | 🚀
 <p/><br>
 
 
 ## Description
 <p>
-A React App that detects, then highlights faces in web images. Including a user profile with image upload count and a Ranking Badge served from AWS Lambda. 
+A React App that detects, then highlights faces in web images. Including a user profile with image upload count and a Ranking Badge served from <b>AWS Lambda</b>. 
 <br><br>
-Built with React.js, Node.js, Express, PostgreSQL, Redis, Tachyon CSS, Clarifai Face Detection API, and all running on Heroku Servers. 
+Built with <b>React.js</b>, <b>Node.js</b>, <b>Express</b>, <b>Bcrypt</b>, <b>PostgreSQL</b>, <b>Redis</b>, <b>Tachyon CSS</b>, <b>Clarifai Face Detection API</b>, and all running on <b>Heroku Servers</b>. 
 <br><br>
 <b>Back-end Server Repo Link:</b> https://github.com/rbhachu/smartbrain-backend-jwt
 <br>
@@ -51,71 +68,74 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 
 
 ## Features
-<p>
--Multi-Face detection using Clarifai Face Detection API
+<ul>
+<li>Multi-Face Detection using Clarifai Face Detection API</li>
 
 ![Multi-Face Detection](./src/imgs-readme/multi-face-detection.png)
 <br>
 
--Ranking badge element served from external AWS Lambda service
+<li>Ranking badge element served from external AWS Lambda service</li>
 
 ![Rank Badge AWS Lamda](./src/imgs-readme/aws-lambda-rank.png)
 ![AWS Lamda](./src/imgs-readme/aws-lambda.png)
 <br>
 
--User authentication using JSON Web Tokens (JWT) 
+<li>User authentication using JSON Web Tokens (JWT)</li>
 
 ![JWT](./src/imgs-readme/jwt.png)
-With Redis server for session management
+<br>
+
+<li>With a Redis Database for Session Management</li>
+
 ![Redis](./src/imgs-readme/redis.png)
 <br>
 
--User profile with capture of image uploads, stored via postgresql database
+<li>User profile with capture of image uploads, stored via a PostgreSQL Database</li>
 
 ![PostgreSQL](./src/imgs-readme/postgresql.png)
 <br>
 
--Portable Web App (PWA) enabled 
+<li>Portable Web App (PWA) enabled</li>
 
 ![PWA](./src/imgs-readme/pwa.png)
 <br>
 
--Responsive layout using Flexbox
+<li>Responsive layout using Flexbox</li>
 
 ![Responsive Layout](./src/imgs-readme/responsive.png)
 <br>
 
--TS Particles for background animation
+<li>TS Particles for background animation</li>
 
 ![TS Particles](./src/imgs-readme/tsparticles.gif)
 <br>
 
--Parallax tilt for interactive site logo
+<li>Parallax tilt for interactive site logo</li>
 
 ![Tilt](./src/imgs-readme/tilt.gif)
 <br>
 
--Form validation with Bcrypt for password encryption/decryption to PostgreSQL Database
+<li>Form validation with Bcrypt for password encryption/decryption to PostgreSQL Database</li>
 
 ![Bcrypt](./src/imgs-readme/bcrypt.png)
 <br>
 
--Tabbed layout
+<li>Tabbed layout</li>
 
 ![Tabbed](./src/imgs-readme/tabbed.png)
 <br>
 
--Editable user profile
+<li>Editable user profile</li>
 
 ![Edit Name](./src/imgs-readme/edit-name.png)
 <br>
 
--Custom site fav icon with support for apple, android etc
+<li>Custom site fav icon with support for apple, android devices too</li>
 
 ![Fav Icon](./src/imgs-readme/fav.png)
 <br>
 
--Hosted and running on Heroku Servers (Please Note: Using free tier, so takes a few seconds to warmup servers.)
+<li>Deployed via Git and running on Heroku Servers</li>
 </p><br>
 
 
@@ -136,6 +156,7 @@ With Redis server for session management
 ```sh
 git clone https://github.com/rbhachu/smartbrain-frontend-jwt.git
 ```
+
 <p>Once the repo has been downloaded, 'CD' to the newly downloaded project folder ('cd smartbrain-frontend'). Then execute the following command in your terminal.<p>
 
 ```sh
@@ -162,11 +183,11 @@ REACT_APP_SERVER_URL=https://rbhachu-smartbrain-b-master.herokuapp.com
 #AWS LAMDA
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
-<br>
+
 Alternatively, to run the app Locally, overwrite the current values in the .env file with the following values; *
 <br>
 
-```
+```sh
 #FRONT-END CLIENT
 REACT_APP_SERVER_URL=http://localhost:3001
 
@@ -177,7 +198,8 @@ REACT_APP_CLIENT_URL=http://localhost:3000
 REACT_APP_AWS_LAMBDA=https://vqvvli950h.execute-api.us-east-1.amazonaws.com
 ```
 
-<i>* You will also need to download the SmartBrain Back-End Server Repo and install it too. The Repo also includes full instructions on how to do this too.
+<i>\* You will also need to download the SmartBrain Back-End Server Repo and install it too.<br>
+The Repo also includes full instructions on how to do this too.<br>
 Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 </p><br>
 
@@ -188,6 +210,7 @@ Back-End Server Repo Link: https://github.com/rbhachu/smartbrain-backend-jwt</i>
 ```sh
 npm start
 ```
+
 <p>After a few seconds, your browser should automatically open to the following link;
 
 [http://localhost:3000](http://localhost:3000)
