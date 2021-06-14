@@ -55,26 +55,27 @@ _This repo is based on the [ZTM Web Developer Zero to Mastery](https://www.udemy
 -Multi-Face detection using Clarifai Face Detection API
 
 ![Multi-Face Detection](./src/imgs-readme/multi-face-detection.png)
-<br><br>
+<br>
 
 -Ranking badge element served from external AWS Lambda service
+
 ![Rank Badge AWS Lamda](./src/imgs-readme/aws-lambda-rank.png)
 ![AWS Lamda](./src/imgs-readme/aws-lambda.png)
-<br><br>
+<br>
 
--User authentication using JSON Web Tokens (JWT) with Redis server for session management
+-User authentication using JSON Web Tokens (JWT) 
 ![JWT](./src/imgs-readme/jwt.png)
+With Redis server for session management
 ![Redis](./src/imgs-readme/redis.png)
-<br><br>
+<br>
 
 -User profile with capture of image uploads, stored via postgresql database
 ![PostgreSQL](./src/imgs-readme/postgresql.png)
-<br><br>
+<br>
 
 -Portable Web App (PWA) enabled 
 ![PWA](./src/imgs-readme/pwa.png)
-<br><br>
-
+<br>
 
 -Responsive layout using Flexbox
 ![Responsive Layout](./src/imgs-readme/responsive.png)
