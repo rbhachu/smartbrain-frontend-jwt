@@ -37,10 +37,10 @@ const ImageLinkForm = ({ input, onInputChange, onSubmitImage, errors, status, na
           >Detect</button>
       
       </div>
-      
+
       { errors && <p className='error bg-red white pa2 f4 ttc shadow-1 lh-copy center tc ma4'>{`${errors}`}</p> }
       { status && <p className='status bg-yellow black pa2 f4 ttc shadow-1 lh-copy center tc ma4'>{`${status}`}</p> }
-      
+
     </div>
 
   );

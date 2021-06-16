@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from '../assets/Preloader.svg' // preloader image for loader
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -31,6 +32,7 @@ class Register extends Component {
       email: null,
       password: null,
       form: "",
+      loading: false,
       formErrors: {
         name: "",
         email: "",
@@ -53,6 +55,8 @@ class Register extends Component {
     if (formValid(this.state)) {
       //console.log("FORM VALID");
       this.setState({form: ''}) // clear form error
+      this.setState({loading: true}) // run load animation
+
     /////////////////////////////////////////////////////////////////////////
     // Register New User
     fetch(`${process.env.REACT_APP_SERVER_URL}/register`, { // remote heroku version 
@@ -68,8 +72,10 @@ class Register extends Component {
     .then(user => {
       if (user.id) { // does the user exist? Did we receive a user with a property of id?
         this.props.loadUser(user); // add new user to database
+        this.setState({form: '' }) // set form error to empty  
       } else {
         //error status if cant connect to postgresql db
+        this.setState({loading: false}) // stop runnning load animation
         this.setState({form: (<>Unable to connect to Database<br />Please try later</>) })
       }
     })
@@ -91,8 +97,10 @@ class Register extends Component {
         this.saveAuthTokenInSessions(data.token)
         this.props.loadUser(data.user)
         this.props.onRouteChange('home');
+        this.setState({loading: false}) // stop runnning load animation
       // if login details invalid
       } else {
+        this.setState({loading: false}) // stop runnning load animation
         this.setState({form: (<>Details invalid!<br />Please check your details and try again</>) })
       }
     })
@@ -100,6 +108,7 @@ class Register extends Component {
   // if form details INVALID
   } else {
     //console.log("FORM INVALID");
+    this.setState({loading: false}) // stop runnning load animation
     if ( !this.state.name || !this.state.email || !this.state.password ) {
       this.setState({form: 'Please enter details'})
     } else {
@@ -208,6 +217,9 @@ class Register extends Component {
                 >Register</button>
                 {this.state.form && (
                   <><br /><span className="dib bg-red white ma3 pa2 f5 ttc shadow-1 lh-copy">{this.state.form}</span></>
+                )}
+                {this.state.loading && (
+                  <><img className="center" src={Loader} alt="Loading..." title="Loading..." width="100" height="100" /></>
                 )}
               </div>
 

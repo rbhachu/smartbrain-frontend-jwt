@@ -21,6 +21,7 @@ import Particles from "react-tsparticles";
     isSignedIn: false, // 
     status: '', // status messages
     errors: '', // error messages
+    loading: false, // loading status
     user: { // user details
       id: '',
       name: '',
@@ -134,8 +135,12 @@ import Particles from "react-tsparticles";
     this.onSubmitReset(); // call function to reset all form values
 
     if (this.state.input.length === 0) {
+      this.setState({loading: false}) // dont run load animation
       this.setState({errors: 'Please paste an image link into the form field to test'});
+
     } else {
+      this.setState({loading: true}) // run load animation
+      
       fetch(`${process.env.REACT_APP_SERVER_URL}/imageurl`, {
           method: 'post',
           headers: {
@@ -169,8 +174,9 @@ import Particles from "react-tsparticles";
         })
         .catch(err => console.log(err));
       }
-
+      this.setState({loading: false}) // run load animation
   }
+
 
   //Route Change Function
   onRouteChange = (route) => {
@@ -193,11 +199,6 @@ import Particles from "react-tsparticles";
   return (
 
     <>
-
-      <Particles className='particles'
-      id="tsparticles"
-      url={`${process.env.REACT_APP_CLIENT_URL}/particles.json`}
-      />
 
       <div className="wrapper">
 
@@ -231,6 +232,7 @@ import Particles from "react-tsparticles";
                     <FaceRecognition 
                       boxes={boxes} 
                       imageUrl={imageUrl} 
+                      loading={this.state.loading}
                       errors={this.state.errors} 
                   /> }
                 </div>
@@ -279,7 +281,13 @@ import Particles from "react-tsparticles";
         </section>
     
       </div>
-    
+
+      <Particles className='particles'
+      id="tsparticles"
+      //url={`${process.env.REACT_APP_CLIENT_URL}/particles.json`}
+      url={`http://localhost:5000/particles.json`}
+      />
+
     </>
 
   );

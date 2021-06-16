@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from '../assets/Preloader.svg' // preloader image for loader
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -29,6 +30,7 @@ class Signin extends Component {
       email: null,
       password: null,
       form: "",
+      loading: false,
       formErrors: {
         email: "",
         password: "",
@@ -50,6 +52,7 @@ class Signin extends Component {
     if (formValid(this.state)) {
       //console.log("FORM VALID");
       this.setState({form: ''}) // clear form error
+      this.setState({loading: true}) // run load animation
 
       fetch(`${process.env.REACT_APP_SERVER_URL}/signin`, {
         method: 'post',
@@ -66,19 +69,22 @@ class Signin extends Component {
           this.saveAuthTokenInSessions(data.token) // generate token for session
           this.props.loadUser(data.user) // login into db
           this.props.onRouteChange('home'); // redirect to home route
-        // if login details invalid
+          this.setState({form: '' }) // set form error to empty  
+          this.setState({loading: false}) // stop runnning load animation
+          // if login details invalid
         } else {
+          this.setState({loading: false}) // stop runnning load animation
           this.setState({form: (<>Details invalid!<br />Please check your details and try again</>) })
         }
       })
     } else {
       //console.log("FORM INVALID");
+      this.setState({loading: false}) // stop runnning load animation
       if ( !this.state.email || !this.state.password ) {
         this.setState({form: 'Please enter details'})
       } else {
         this.setState({form: 'Please fix form errors!'})
       }
-
     }
   };
 
@@ -161,6 +167,9 @@ class Signin extends Component {
                 >Sign In</button>
                 {this.state.form && (
                   <><br /><span className="dib bg-red white ma3 pa2 f5 ttc shadow-1 lh-copy">{this.state.form}</span></>
+                )}
+                {this.state.loading && (
+                  <><img className="center" src={Loader} alt="Loading..." title="Loading..." width="100" height="100" /></>
                 )}
               </div>
 
