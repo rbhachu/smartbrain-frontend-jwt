@@ -284,8 +284,8 @@ import Particles from "react-tsparticles";
 
       <Particles className='particles'
       id="tsparticles"
-      //url={`${process.env.REACT_APP_CLIENT_URL}/particles.json`}
-      url={`http://localhost:5000/particles.json`}
+      url={`${process.env.REACT_APP_CLIENT_URL}/particles.json`}
+      //url={`http://localhost:5000/particles.json`}
       />
 
     </>
