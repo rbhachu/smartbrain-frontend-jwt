@@ -14,9 +14,9 @@
 <p>
 You can use the following test login details <i>(ensure lowercase as case sensitive)</i>
 <br>
-<b>user:</b> a@a.com
+<b>Email:</b> a@a.com
 <br>
-<b>password:</b> a
+<b>Password:</b> a
 
 ![Login](./src/imgs-readme/login.png)<br>
 _**Please note: Site may take a few seconds to initially load due to using free tier on Heroku .**_
