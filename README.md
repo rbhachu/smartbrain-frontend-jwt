@@ -39,7 +39,7 @@ Once logged in simply copy, then paste an image url from the web <i>(example: ht
 <br>
 
 Each time you upload an image the 'Total Images Submitted' value is incremented by +1.<br>
-You can view the current total in the 'View Profile' tab, along with the 'Current Rank 'Badge', which is fed from AWS Lambda.
+You can view the current total in the 'View Profile' tab, along with the 'Current Rank 'Badge', which is fed from AWS Lambda as a serverless function.
 
 ![Image Count & Rank Badge](./src/imgs-readme/rank.png)
 
