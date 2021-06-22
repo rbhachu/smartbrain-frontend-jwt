@@ -61,7 +61,7 @@ Total Images Submitted | Current Rank 'Badge'
 
 ## Description
 <p>
-A React App that detects, then highlights faces in web images. Including a user profile with image upload count and a Ranking Badge served from <b>AWS Lambda</b>. 
+A React App that detects, then highlights faces in web images. Including a user profile with image upload count and a Ranking Badge served from <b>AWS Lambda</b> as a serverless function. 
 <br><br>
 Built with <b>React.js</b>, <b>Node.js</b>, <b>Express</b>, <b>Bcrypt</b>, <b>PostgreSQL</b>, <b>Redis</b>, <b>Tachyon CSS</b>, <b>Clarifai Face Detection API</b>, and all running on <b>Heroku Servers</b> 'synched' with <b>GitHub</b>. 
 <br><br>
@@ -81,7 +81,7 @@ Since completing both courses and further personal development I have also updat
 ![Multi-Face Detection](./src/imgs-readme/multi-face-detection.png)
 <br>
 
-<li>Ranking badge element served from external AWS Lambda serverless server</li>
+<li>Ranking badge element served from external AWS Lambda as a serverless function</li>
 
 ![Rank Badge AWS Lambda](./src/imgs-readme/aws-lambda-rank.png)
 ![AWS Lambda](./src/imgs-readme/aws-lambda.png)
