@@ -11,7 +11,7 @@
 __*Updated Version of this Repo: https://github.com/rbhachu/smartbrain-master-docker*__
 <br><br>
 
-<h1 align="center">SmartBrain Master (Front-End Client)</h1>
+<h1 align="center">SmartBrain v2 Client</h1>
 <div align="center">
 
 :rocket: **[View Live Demo](https://rbhachu-smartbrain-f-master.herokuapp.com/)** :rocket:<br>
