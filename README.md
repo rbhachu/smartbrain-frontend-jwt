@@ -1,5 +1,14 @@
 [![Build Status](https://travis-ci.org/gelstudios/gitfiti.svg?branch=master)](https://github.com/rbhachu/smartbrain-frontend-jwt) [![Heroku](https://heroku-badge.herokuapp.com/?app=rbhachu-smartbrain-f-master)](https://github.com/rbhachu/smartbrain-frontend-jwt)
 
+# All SmartBrain Repos
+- **SmartBrain v1: [Client](https://github.com/rbhachu/smartbrain-frontend/) / [Server](https://github.com/rbhachu/smartbrain-backend/)** 
+- **SmartBrain v2: [Client](https://github.com/rbhachu/smartbrain-frontend-jwt/) / [Server](https://github.com/rbhachu/smartbrain-backend-jwt/)** 
+- **SmartBrain Docker v1: [Docker Server](https://github.com/rbhachu/smartbrain-backend-docker)** 
+- **SmartBrain Docker v2: [Docker Client + Server](https://github.com/rbhachu/smartbrain-master-docker/)** 
+<br>
+
+----
+
 __*Updated Version of this Repo: https://github.com/rbhachu/smartbrain-master-docker*__
 <br><br>
 
